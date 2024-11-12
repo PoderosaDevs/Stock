@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { ReportContent } from './ReportContent'; 
 import useSummary from '../../../hooks/useSummary';
 
