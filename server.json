@@ -1,0 +1,39 @@
+{
+  "admin": [
+    {
+      "hash": "D41D8CD9",
+      "password": "12345678",
+      "id": "7125"
+    }
+  ],
+  "employees": [
+    {
+      "id": "3562",
+      "name": "Joao santos",
+      "role": "Auxiliar de estoquista - Pack",
+      "birthday": "2001-05-12",
+      "work": []
+    },
+    {
+      "id": "4383",
+      "name": "Eduardo Ramos",
+      "role": "Auxiliar de estoquista - Pack",
+      "birthday": "1999-06-30",
+      "work": []
+    }
+  ],
+  "roles": [
+    {
+      "id": "1",
+      "name": "Auxiliar de estoquista - Pick"
+    },
+    {
+      "id": "2",
+      "name": "Auxiliar de estoquista - Pack"
+    },
+    {
+      "id": "3",
+      "name": "Auxiliar de estoquista - Faturamento"
+    }
+  ]
+}

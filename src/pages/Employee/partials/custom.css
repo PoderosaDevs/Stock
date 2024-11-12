@@ -1,0 +1,59 @@
+.rbc-calendar {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.375rem;
+  padding: 1rem;
+}
+
+.rbc-toolbar {
+  margin-bottom: 1rem;
+}
+
+.rbc-header {
+  background-color: #69e3e7 !important;
+  padding: 0.5rem;
+  font-weight: 500 !important;
+}
+
+.rbc-btn-group :nth-child(3) {
+  display: none;
+}
+
+.rbc-btn-group :last-child {
+  display: none;
+}
+
+.rbc-day-bg {
+  cursor: pointer;
+  background-color: #fff;
+}
+
+.rbc-day-bg: hover {
+  cursor: pointer;
+  background-color: #000 !important;
+}
+
+.rbc-header {
+  background-color: #f3f4f6;
+  padding: 0.5rem;
+  font-weight: 500;
+}
+
+.rbc-today {
+  background-color: #e5e7eb !important;
+}
+
+.rbc-event {
+  background-color: #3b82f6;
+  color: #ffffff;
+  padding: 0.25rem;
+  border-radius: 0.375rem;
+}
+
+.rbc-event:hover {
+  background-color: #2563eb;
+}
+
+input[type="time"]::-webkit-calendar-picker-indicator {
+  filter: invert(90%) sepia(10%) saturate(300%) hue-rotate(180deg) brightness(1000%);
+}
