@@ -35,23 +35,23 @@ export function CalendarEmployee() {
 
   const [isOpen, setIsOpen] = useState(false);
   const [selectedDate, setSelectedDate] = useState<Date>();
-  const [view, setView] = useState<'calendar' | 'table'>('calendar'); // State for toggling between calendar and table
+  const [view, setView] = useState<'calendar' | 'table'>('calendar'); 
 
-  // Ensure data is available and map correctly
   const workDays = data?.GetDiasTrabalhadosEstoque || [];
 
-  const events = workDays.map((work) => {
-    const date = new Date(work.data_trabalho);
-    // Check if the date is valid
-    if (isNaN(date.getTime())) return null; // Skip invalid dates
+  const events = workDays
+    .map((work) => {
+      const date = new Date(work.data_trabalho);
+      if (isNaN(date.getTime())) return null; 
 
-    return {
-      title: `Pedidos: ${work.pedidos}, Realizados: ${work.realizados}`,
-      start: date,
-      end: date,
-      allDay: true,
-    };
-  }).filter(event => event !== null); // Filter out invalid events
+      return {
+        title: `Pedidos: ${work.pedidos}, Realizados: ${work.realizados}`,
+        start: date,
+        end: date,
+        allDay: true,
+      };
+    })
+    .filter((event): event is NonNullable<typeof event> => event !== null);
 
   const handleOpenDialog = (slotInfo: SlotInfo) => {
     setIsOpen(true);
