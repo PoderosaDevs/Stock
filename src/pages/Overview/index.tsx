@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import useSummaryFuncionario, { SummaryFuncionario } from "../../hooks/useSummaryFuncionario";
+import useSummaryFuncionario from "../../hooks/useSummaryFuncionario";
 
 export function Overview() {
   const funcionarios = useSummaryFuncionario();

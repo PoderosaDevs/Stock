@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Calendar, SlotInfo, dateFnsLocalizer } from 'react-big-calendar';
-import { format, startOfMonth, endOfMonth, startOfWeek, getDay } from 'date-fns';
+import { format, startOfWeek, getDay } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 import { useParams } from 'react-router-dom';
 import * as Dialog from '@radix-ui/react-dialog';
@@ -23,14 +23,6 @@ const localizer = dateFnsLocalizer({
 interface Params {
   id: string;
   [key: string]: string | undefined;
-}
-
-interface WorkDay {
-  data_trabalho: string; // ISO date string
-  pedidos: number;
-  realizados: number;
-  horario_entrada: string; // e.g. "08:00"
-  horario_saida: string; // e.g. "17:00"
 }
 
 export function CalendarEmployee() {

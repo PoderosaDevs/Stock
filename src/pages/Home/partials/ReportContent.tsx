@@ -7,7 +7,7 @@ interface Props {
   type: 'day' | 'week' | 'month';
 }
 
-export function ReportContent({ title, pedidos, realizados, type }: Props) {
+export function ReportContent({ title, pedidos, realizados }: Props) {
   const [corBarraProgresso, setCorBarraProgresso] = useState<string>('bg-green-500');
   const [taxaAproveitamento, setTaxaAproveitamento] = useState<number>(0);
 
