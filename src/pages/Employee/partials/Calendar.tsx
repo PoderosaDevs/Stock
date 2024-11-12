@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Calendar, SlotInfo, dateFnsLocalizer } from 'react-big-calendar';
 import { format, startOfWeek, getDay } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import * as Dialog from '@radix-ui/react-dialog';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import './custom.css';
@@ -35,14 +35,14 @@ export function CalendarEmployee() {
 
   const [isOpen, setIsOpen] = useState(false);
   const [selectedDate, setSelectedDate] = useState<Date>();
-  const [view, setView] = useState<'calendar' | 'table'>('calendar'); 
+  const [view, setView] = useState<'calendar' | 'table'>('calendar');
 
   const workDays = data?.GetDiasTrabalhadosEstoque || [];
 
   const events = workDays
     .map((work) => {
       const date = new Date(work.data_trabalho);
-      if (isNaN(date.getTime())) return null; 
+      if (isNaN(date.getTime())) return null;
 
       return {
         title: `Pedidos: ${work.pedidos}, Realizados: ${work.realizados}`,
@@ -62,9 +62,19 @@ export function CalendarEmployee() {
     <div className="p-4">
       <div className='w-full flex flex-row pb-3 justify-between items-center'>
         <h1 className="text-2xl mb-4">Performace do funcionario: </h1>
-        <button className='bg-gray-900 px-4 py-2 rounded-md text-white' onClick={() => setView(view === 'table' ? 'calendar' : 'table')}>
-          {view === 'table' ? 'Calendário' : 'Tabela'}
-        </button>
+        <div className='flex gap-2'>
+          <Link to={'/'} className='bg-gray-700 px-4 py-2 rounded-md text-white'>
+            Voltar
+          </Link>
+          <button className='bg-gray-900 px-4 py-2 rounded-md text-white' onClick={() => setView(view === 'table' ? 'calendar' : 'table')}>
+            {view === 'table' ? 'Calendário' : 'Tabela'}
+          </button>
+          <Dialog.Root open={isOpen} onOpenChange={setIsOpen}>
+            <Dialog.Trigger />
+            <NewWorkDayModal id={id ? parseInt(id) : 0} date={selectedDate ? selectedDate : new Date()} />
+          </Dialog.Root>
+         
+        </div>
       </div>
       <hr className='pt-6' />
 
@@ -103,10 +113,7 @@ export function CalendarEmployee() {
             selectable
             onSelectSlot={handleOpenDialog}
           />
-          <Dialog.Root open={isOpen} onOpenChange={setIsOpen}>
-            <Dialog.Trigger />
-            <NewWorkDayModal id={id ? parseInt(id) : 0} date={selectedDate} />
-          </Dialog.Root>
+      
         </div>
       )}
     </div>
