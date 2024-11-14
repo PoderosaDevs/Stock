@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import useSummaryFuncionario from '../../../hooks/useSummaryFuncionario';
+import useSummaryFuncionario from '../../../hooks/useSummaryFuncionarios';
 
 export function TableHome() {
   const funcionarios = useSummaryFuncionario();
@@ -43,7 +43,9 @@ export function TableHome() {
                 {employee.taxaAproveitamento.toFixed(2)}%
               </td>
               <td className="px-6 py-4 whitespace-nowrap text-end">
-                <Link to={`infos/${employee.id}`} className="bg-blue-500 text-white px-4 py-2 rounded-lg">Gerenciar</Link>
+                <Link to={`infos/${employee.id}`} className="bg-blue-500 text-white px-4 py-2 rounded-lg mr-2">Gerenciar</Link>
+                <Link to={`overview-employee/${employee.id}`} className="bg-slate-800 text-white px-4 py-2 rounded-lg">Visualizar</Link>
+
               </td>
             </tr>
           );
