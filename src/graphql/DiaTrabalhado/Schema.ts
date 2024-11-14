@@ -37,3 +37,11 @@ mutation SetDiaTrabalhadoEstoque($data: DiaTrabalhadoEstoqueInput!) {
   }
 }
 `
+
+export const DELETE_DIA_TRABALHO_SCHEMA = gql`
+mutation DeleteDiaTrabalhadoEstoque($deleteDiaTrabalhadoEstoqueId: Float!) {
+  DeleteDiaTrabalhadoEstoque(id: $deleteDiaTrabalhadoEstoqueId) {
+    id
+  }
+}
+`

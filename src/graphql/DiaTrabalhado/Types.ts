@@ -28,3 +28,10 @@ export interface TypesSetDiaTrabalho {
     usuarioId: number;
   }
 }
+
+export interface TypesDeleteDiaTrabalho {
+  DeleteDiaTrabalhadoEstoque: {
+    id: number;
+  }
+}
+
