@@ -215,7 +215,7 @@ export function CalendarEmployee() {
                             />
                             <button
                               onClick={() => {
-                                handleDelete(response.id);
+                                handleDelete(parseInt(String(response.id)));
                               }}
                               disabled={LoadingDias}
                               className="btn btn-icon bg-red-500 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-opacity-50 p-3 rounded-md text-white"
@@ -288,7 +288,7 @@ export function CalendarEmployee() {
                             )}
                             <button
                               onClick={() => {
-                                handleDeleteOcorrencia(response.id);
+                                handleDeleteOcorrencia(parseInt(String(response.id)));
                               }}
                               disabled={LoadingOcorrencias}
                               className="btn btn-icon bg-red-500 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-opacity-50 p-3 rounded-md text-white"
