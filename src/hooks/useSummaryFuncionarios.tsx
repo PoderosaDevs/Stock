@@ -1,4 +1,3 @@
-import { QueryGetDiasTrabalho } from '../graphql/DiaTrabalhado/Query';
 import { QueryGetFuncionarios } from '../graphql/Funcionario/Query';
 
 export interface SummaryFuncionario {

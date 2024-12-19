@@ -214,7 +214,7 @@ export function CalendarEmployee() {
                               id={response.id ? response.id : 0}
                             />
                             <button
-                              onClick={(e) => {
+                              onClick={() => {
                                 handleDelete(response.id);
                               }}
                               disabled={LoadingDias}
@@ -287,7 +287,7 @@ export function CalendarEmployee() {
                               />
                             )}
                             <button
-                              onClick={(e) => {
+                              onClick={() => {
                                 handleDeleteOcorrencia(response.id);
                               }}
                               disabled={LoadingOcorrencias}

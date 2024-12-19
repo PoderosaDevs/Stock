@@ -1,7 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as Dialog from '@radix-ui/react-dialog';
 import { useForm } from 'react-hook-form';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { z } from 'zod';
 import Swal from 'sweetalert2';
 import { LuPackage, LuPackageCheck } from 'react-icons/lu';
@@ -13,7 +13,7 @@ interface Props {
   date: Date;
 }
 
-export function NewReportingModal({ id, date }: Props) {
+export function NewReportingModal({ id }: Props) {
   const { FormSet } = MutationSetOcorrencia();
 
   const reportingFormSchema = z.object({
