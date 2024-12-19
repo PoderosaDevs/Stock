@@ -1,9 +1,14 @@
 import { Link } from "react-router-dom";
 import useSummaryFuncionario from "../../hooks/useSummaryFuncionario";
+import { QueryGetOcorrencias } from "../../graphql/Observacao/Query";
 
 export function OverviewEmployee() {
-  const { mediaHorasTrabalhadas, mediaPedidosRealizados, mediaTempoPorPedido, nome, taxaAproveitamento, totalPedidos, totalRealizados } = useSummaryFuncionario(); // Ajuste para obter os dados corretos do hook
-
+  const { id, mediaHorasTrabalhadas, mediaPedidosRealizados, mediaTempoPorPedido, nome, taxaAproveitamento, totalPedidos, totalRealizados } = useSummaryFuncionario(); // Ajuste para obter os dados corretos do hook
+  const { data: DataOcorrencias } = QueryGetOcorrencias({
+    variables: {
+      userId: parseInt(String(id)),
+    },
+  })
   const progressValue = (totalRealizados / totalPedidos) * 100;
 
   return (
@@ -64,6 +69,13 @@ export function OverviewEmployee() {
               <div className="flex justify-between">
                 <p>Média p/ dia:</p>
                 <p className="font-semibold text-2xl">{mediaPedidosRealizados}</p>
+              </div>
+            </div>
+            <h3 className="text-3xl font-semibold text-rose-600 mb-4">Ocorrências:</h3>
+            <div className="flex w-full flex-col gap-2 text-xl">
+              <div className="flex justify-between">
+                <p>ocorrência p/ mês:</p>
+                <p className="font-semibold text-2xl">{DataOcorrencias?.GetObservacoes.pageInfo.totalItems}</p>
               </div>
             </div>
           </div>

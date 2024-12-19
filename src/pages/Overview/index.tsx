@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import useSummaryFuncionario from "../../hooks/useSummaryFuncionarios";
+import { QueryGetOcorrencias } from "../../graphql/Observacao/Query";
 
 export function Overview() {
   const funcionarios = useSummaryFuncionario();
@@ -29,6 +30,12 @@ export function Overview() {
   }, [funcionarios.length]); // Adicionando a length como dependência
 
   const currentFuncionario = funcionarios[currentFuncionarioIndex];
+  
+   const { data: DataOcorrencias } = QueryGetOcorrencias({
+      variables: {
+        userId: currentFuncionario ? currentFuncionario.id : 0,
+      },
+    })
 
   if (!currentFuncionario) return <p>Carregando dados...</p>;
 
@@ -88,6 +95,13 @@ export function Overview() {
               <div className="flex justify-between">
                 <p>Média p/ dia:</p>
                 <p className="font-semibold text-2xl">{currentFuncionario.mediaPedidosRealizados}</p>
+              </div>
+            </div>
+            <h3 className="text-3xl font-semibold text-rose-600 mb-4">Ocorrências:</h3>
+            <div className="flex w-full flex-col gap-2 text-xl">
+              <div className="flex justify-between">
+                <p>ocorrência p/ mês:</p>
+                <p className="font-semibold text-2xl">{DataOcorrencias?.GetObservacoes.pageInfo.totalItems}</p>
               </div>
             </div>
           </div>

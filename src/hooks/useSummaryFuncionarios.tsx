@@ -1,3 +1,4 @@
+import { QueryGetDiasTrabalho } from '../graphql/DiaTrabalhado/Query';
 import { QueryGetFuncionarios } from '../graphql/Funcionario/Query';
 
 export interface SummaryFuncionario {
@@ -44,6 +45,7 @@ const useSummaryFuncionario = (
   }
 
   const { data } = QueryGetFuncionarios();
+
   const funcionarios = data?.GetFuncionariosEstoque || [];
 
   const summaryFuncionarios: SummaryFuncionario[] = funcionarios.map((funcionario) => {

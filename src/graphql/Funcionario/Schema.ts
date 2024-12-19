@@ -14,6 +14,13 @@ query GetFuncionariosEstoque {
       data_trabalho
       usuarioId
     }
+    Observacao {
+      id
+      title
+      description
+      data
+      usuario_id
+    }
   }
 }
 `

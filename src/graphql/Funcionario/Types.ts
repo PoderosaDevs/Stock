@@ -11,6 +11,13 @@ export interface GetFuncionariosTypes {
       data_trabalho: Date;
       usuarioId: number;
     }[]
+    Observacao: {
+      id: number;
+      title: string;
+      description: string;
+      data: Date;
+      usuario_id: number;
+    }[]
   }[]
 }
 
@@ -25,6 +32,13 @@ export interface GetFuncionarioByIDTypes {
       data_trabalho: Date;
       horario_entrada: string;
       horario_saida: string;
+    }[]
+    Observacao: {
+      id: number;
+      title: string;
+      description: string;
+      data: Date;
+      usuario_id: number;
     }[]
   }
 }
